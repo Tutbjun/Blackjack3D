@@ -1,8 +1,9 @@
 Kort[] k = new Kort[52];
 
 class Kort{
-  
+  Animation Animation = new Animation();
   class Animation{
+    Draw Draw = new Draw();
     class Draw{
       int antalArrayTingTing = 11;
       float[][] Path = new float[antalArrayTingTing][4];

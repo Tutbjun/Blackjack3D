@@ -31,14 +31,15 @@ void udregnvektorsti(float h, int kort) {
       println("s:" + s[i]);
   }
   for(int i = 0; i < 3; i++){ 
-    vektortau[i] = ((n+1)-s[kort])*k[kort].Animation.Draw.Path[n+1][i]; //n+1 fordi første vektor er 1
+    vektortau[i] = ((n+1)-s[kort])*(k[kort].Animation.Draw.Path[n+1][i]); //n+1 fordi første vektor er 1
     if(debug)
       println("vektortau" + i + "  " + vektortau[i]);
   }
   
   //udregn omega (hvor stor en del af den nuværende vektor, som den skal bevæge sig)
   float laengdetau = abs(sqrt(pow(vektortau[0],2)+pow(vektortau[1],2)+pow(vektortau[2],2)));
-  float omega = h/CardDraw.PathLength;
+  float omega = h/k[kort].Animation.Draw.PathLength;
+  println(k[kort].Animation.Draw.PathLength);
   if(debug){
     println("laengdetau " + laengdetau);
     println("omega " + omega);
@@ -51,9 +52,9 @@ void udregnvektorsti(float h, int kort) {
   while(omega > 0){ //få Simon til at tjekke logikken
     whileCycles++;
     if(whileCycles == 1){
-      if(laengdetau/CardDraw.PathLength < omega){ //ÆNDRET FRA laengdetau > laengdetau * omega
+      if(laengdetau/k[kort].Animation.Draw.PathLength < omega){ //ÆNDRET FRA laengdetau > laengdetau * omega
         for(int i = 0; i < 3; i++){
-          vektoralpha[i] += CardDraw.Path[n+1][i] * omega;
+          vektoralpha[i] += k[kort].Animation.Draw.Path[n+1][i] * omega;
         }
         omega -= omega;
       }    
@@ -61,7 +62,7 @@ void udregnvektorsti(float h, int kort) {
         for(int i = 0; i < 3; i++){
           vektoralpha[i] += vektortau[i];
         }
-        omega -= CardDraw.PathLength/laengdetau;
+        omega -= k[kort].Animation.Draw.PathLength/laengdetau;
       }
     }
 
@@ -69,13 +70,13 @@ void udregnvektorsti(float h, int kort) {
     if(omega >= 1){
       vektorStiIndex = n + whileCycles - 1;
       for(int i = 0; i < 3; i++)
-        vektoralpha[i] += CardDraw.Path[vektorStiIndex][i];
+        vektoralpha[i] += k[kort].Animation.Draw.Path[vektorStiIndex][i];
       omega--;
     }
     if(omega < 1){
       vektorStiIndex = n + whileCycles - 1;
       for(int i = 0; i < 3; i++){
-        vektoralpha[i] += CardDraw.Path[vektorStiIndex][i] * omega;
+        vektoralpha[i] += k[kort].Animation.Draw.Path[vektorStiIndex][i] * omega;
       }
       omega -= omega;
     }

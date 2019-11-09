@@ -1,3 +1,41 @@
+StringList ikkeIndlaestKort = new StringList();
+int[] indlaestKort = new int[52];
+PImage bagside;
+PImage[] spillekort = new PImage[52];
+
+void indlaesKort(){
+  for(int i = 0; i < 52; i++){
+    ikkeIndlaestKort.set(i , "" + i);
+  }
+
+  for(int i = 0; i < 52; i++){
+    int aflaesIndex = int(random(ikkeIndlaestKort.size()));
+    String kort = ikkeIndlaestKort.get(aflaesIndex);
+    int kortint = Integer.parseInt(kort);
+    indlaestKort[i] = kortint;
+    ikkeIndlaestKort.remove(aflaesIndex);
+    println(kort);
+  }
+  
+  for(int i = 0; i < 52; i++){
+    if(13 > indlaestKort[i]){
+      spillekort[i] = loadImage("spar" + (indlaestKort[i]+1) + ".png");      
+    }
+    else if(26 > indlaestKort[i]){
+      spillekort[i] = loadImage("hjerte" + (indlaestKort[i]+1-13) + ".png");      
+    }
+    else if(39 > indlaestKort[i]){
+      spillekort[i] = loadImage("ruder" + (indlaestKort[i]+1-26) + ".png");      
+    }
+    else if(52 > indlaestKort[i]){
+      spillekort[i] = loadImage("kloer" + (indlaestKort[i]+1-39) + ".png");      
+    }
+  }
+  
+  bagside = loadImage("bagside.png");
+}
+
+
 void tegnKort(float rX, float rY, float rZ, float dX, float dY, float dZ, float frX, float frY, float frZ, float fdX, float fdY, float fdZ, PImage image){
   pushMatrix();
     //translate
@@ -18,26 +56,4 @@ void tegnKort(float rX, float rY, float rZ, float dX, float dY, float dZ, float 
 void coordinateOrigo(int pos){
   if(pos == CENTER)
     translate(width/2,height/2);
-}
-
-PImage bagside;
-PImage[] spillekort = new PImage[52];
-void indlaesKort(){
-  
-  bagside = loadImage("bagside.png");
-  
-  
-  for(int i = 0; i < 13; i++){
-    spillekort[i] = loadImage("spar" + (i+1) + ".png");
-  }
-  for(int i = 0; i < 13; i++){
-    spillekort[i+13] = loadImage("hjerte" + (i+1) + ".png");
-  }
-  for(int i = 0; i < 13; i++){
-    spillekort[i+26] = loadImage("ruder" + (i+1) + ".png");
-  }
-  for(int i = 0; i < 13; i++){
-    spillekort[i+39] = loadImage("kloer" + (i+1) + ".png");
-  }
-
 }

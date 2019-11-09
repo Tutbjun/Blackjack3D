@@ -1,3 +1,8 @@
+boolean flipKort = false;
+
+
+
+
 float hastighed = 1;
 
 int[] kortIBunkePos = new int[52];
@@ -28,7 +33,7 @@ void draw(){
   
   for(int i = 0; i < 52; i++){
     if(!finished[i])
-      udregnvektorsti(hastighed, i);
+      udregnvektorsti(hastighed, i, "Draw");
   }
   
   assets();
@@ -40,52 +45,6 @@ void draw(){
   
   
   
-}
-
-PImage bord;
-PImage ai;
-PImage casino;
-void indlaesAssets(){
-  bord = loadImage("bord.png");
-  ai = loadImage("ai.png");
-  casino = loadImage("casino.png");
-}
-
-void assets(){
-  imageMode(CENTER);
-  pushMatrix();
-    translate(0,390,-1000);
-    rotateX(1.3);
-    scale(4);
-    image(bord,0,0);
-  popMatrix();
-  pushMatrix();
-    translate(0,-1250,-3000);
-    rotateX(-0.2);
-    scale(7);
-    image(casino,0,0);
-  popMatrix();
-  pushMatrix();
-    translate(0,-600,-2000);
-    scale(3);
-    image(ai,0,0);
-  popMatrix();
-  
-}
-
-int kortx;
-int korty;
-int kortz;
-void kortBunke(int kort){
-  kortx = 250;
-  korty = 48;
-  kortz = -250;
-  rotersum[kort][0] = 1.3;
-  rotersum[kort][1] = 0;
-  rotersum[kort][2] = 0;
-  vektorsum[kort][0] = kortx;
-  vektorsum[kort][1] = korty;
-  vektorsum[kort][2] = kortz;   
 }
 
 void mousePressed(){

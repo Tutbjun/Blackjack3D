@@ -36,8 +36,12 @@ void indlaesKort(){
 }
 
 
-void tegnKort(float rX, float rY, float rZ, float dX, float dY, float dZ, float frX, float frY, float frZ, float fdX, float fdY, float fdZ, PImage image){
+void tegnKort(float rX, float rY, float rZ, float dX, float dY, float dZ, float frX, float frY, float frZ, float fdX, float fdY, float fdZ, PImage image, float rOfsetX, float rOfsetY, float rOfsetZ){
   pushMatrix();
+    
+    rotateX(rOfsetX);
+    rotateY(rOfsetY);
+    rotateZ(rOfsetZ);
     //translate
     translate(dX, dY, dZ);
     //roter

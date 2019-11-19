@@ -3,14 +3,15 @@ Kort[] k = new Kort[52];
 class Kort{
   Animation Animation = new Animation();
   class Animation{
+    Demo Demo = new Demo();
     Draw Draw = new Draw();
-    Flip Flip = new Flip();
-    class Draw{
+    class Demo{
       int antalArrayTingTing = 11;
-      float[][] Path = new float[antalArrayTingTing][4];
+      float[][] Path = new float[antalArrayTingTing][3];
       float PathLength;
+      boolean[] finished = new boolean[52];
       
-      Draw(){    
+      Demo(){    
         Path[1][0] = 50;
         Path[1][1] = -50;
         Path[1][2] = 0;
@@ -69,36 +70,32 @@ class Kort{
     }*/
     
   
-    class Flip{
+    class Draw{
       int antalArrayTingTing = 11;
-      float[][] Path = new float[antalArrayTingTing][4];
+      float[][] Path = new float[antalArrayTingTing][3];
+      float[] Rotation = new float[3];
       float PathLength;
+      boolean[] finished = new boolean[52];
       
-      Flip(){
+      Draw(){
         
-        Path[1][0] = 50;
+        Path[1][0] = -500;
         Path[1][1] = -50;
-        Path[1][2] = 0;
+        Path[1][2] = 200;
         
         PathLength = abs(sqrt(pow(Path[1][0],2)+pow(Path[1][1],2)+pow(Path[1][2],2)));
         
         Path[2][0] = 0;
         Path[2][1] = 0; //nonsenslinje til at få de til slutpositionen
-        Path[2][2] = 10;
+        Path[2][2] = 1;
+        
+        Rotation[0] = 0;
+        Rotation[1] = 0;
+        Rotation[2] = 0;
         
         //rotation();
       }
       
-      float[][] Rotation = new float[antalArrayTingTing][3];
-      /*void rotation(){ ja...
-        for(int i1 = antalArrayTingTing; i1 > 0; i1--){
-          for(int i2 = 0; i2 < 3; i2++){
-            CardDrawRotation[i1][i2] = 
-          }
-        }
-        
-        
-      }*/
       
     }
   }

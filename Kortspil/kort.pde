@@ -53,7 +53,8 @@ void tegnKort(float rX, float rY, float rZ, float dX, float dY, float dZ, float 
     scale(2);
     image(image,0,0);
     translate(0,0,0.01);
-    image(bagside,0,0);
+    if(!debugBleh)
+      image(bagside,0,0);
   popMatrix();  
 }
 

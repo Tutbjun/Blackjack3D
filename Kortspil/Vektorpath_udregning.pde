@@ -11,17 +11,21 @@ void resetAnimation(int kort, String aniType) {
   s[kort] = 1;
   roteralpha = new float[3];
   vektoralpha = new float[3];
-  if(aniType == "Draw") 
+  if(aniType == "Demo") 
     k[kort].Animation.Demo.finished[kort] = false;
-  if(aniType == "Flip") 
+  if(aniType == "Draw") 
     k[kort].Animation.Draw.finished[kort] = false;
+  if(aniType == "aiDraw") 
+    k[kort].Animation.aiDraw.finished[kort] = false;
 }
 
 int antalArrayTingTing(String aniType, int kort){
-  if(aniType == "Draw")
+  if(aniType == "Demo")
     return k[kort].Animation.Demo.antalArrayTingTing;
-  else if(aniType == "Flip")
+  else if(aniType == "Draw")
     return k[kort].Animation.Draw.antalArrayTingTing;
+  else if(aniType == "aiDraw")
+    return k[kort].Animation.aiDraw.antalArrayTingTing;
   else{
     for(int i = 0; i< 100; i++)
       println("bigoof");
@@ -29,11 +33,13 @@ int antalArrayTingTing(String aniType, int kort){
   }
 }
 float paths(String aniType, int kort, int i1, int i2){
-  if(aniType == "Draw"){
+  if(aniType == "Demo"){
     return k[kort].Animation.Demo.Path[i1+1][i2];
   }
-  else if(aniType == "Flip")
+  else if(aniType == "Draw")
     return k[kort].Animation.Draw.Path[i1+1][i2];
+  else if(aniType == "aiDraw")
+    return k[kort].Animation.aiDraw.Path[i1+1][i2];
   else{
     for(int i = 0; i< 100; i++)
       println("bigoof");
@@ -41,11 +47,13 @@ float paths(String aniType, int kort, int i1, int i2){
   }
 }
 float pathLength(String aniType, int kort){
-  if(aniType == "Draw"){
+  if(aniType == "Demo"){
     return k[kort].Animation.Demo.PathLength;
   }
-  else if(aniType == "Flip")
+  else if(aniType == "Draw")
     return k[kort].Animation.Draw.PathLength;
+  else if(aniType == "aiDraw")
+    return k[kort].Animation.aiDraw.PathLength;
   else{
     for(int i = 0; i< 100; i++)
       println("bigoof");
@@ -68,10 +76,12 @@ void udregnvektorsti(float h, int kort, String aniType) {
   float pathsLength = pathLength(aniType, kort);  
   println(s[kort]);
   if (s[kort] > antalPaths) {
-    if(aniType == "Draw")
+    if(aniType == "Demo")
       k[kort].Animation.Demo.finished[kort] = true;
-    if(aniType == "Flip")
+    if(aniType == "Draw")
       k[kort].Animation.Draw.finished[kort] = true;
+    if(aniType == "aiDraw")
+      k[kort].Animation.aiDraw.finished[kort] = true;
     println(aniType);
     return;
   }

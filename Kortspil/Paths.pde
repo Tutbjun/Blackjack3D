@@ -5,6 +5,7 @@ class Kort{
   class Animation{
     Demo Demo = new Demo();
     Draw Draw = new Draw();
+    aiDraw aiDraw = new aiDraw();
     class Demo{
       int antalArrayTingTing = 11;
       float[][] Path = new float[antalArrayTingTing][3];
@@ -71,7 +72,7 @@ class Kort{
     
   
     class Draw{
-      int antalArrayTingTing = 11;
+      int antalArrayTingTing = 4;
       float[][] Path = new float[antalArrayTingTing][3];
       float[] Rotation = new float[3];
       float PathLength;
@@ -88,6 +89,43 @@ class Kort{
         Path[2][0] = 0;
         Path[2][1] = 0; //nonsenslinje til at få de til slutpositionen
         Path[2][2] = 1;
+        
+        Path[3][0] = 0;
+        Path[3][1] = 0; //nonsenslinje til at få de til slutpositionen
+        Path[3][2] = 1;
+        
+        Rotation[0] = 0;
+        Rotation[1] = 0;
+        Rotation[2] = 0;
+        
+        //rotation();
+      }
+      
+      
+    }
+    
+    class aiDraw{
+      int antalArrayTingTing = 4;
+      float[][] Path = new float[antalArrayTingTing][3];
+      float[] Rotation = new float[3];
+      float PathLength;
+      boolean[] finished = new boolean[52];
+      
+      aiDraw(){
+        
+        Path[1][0] = -500;
+        Path[1][1] = -50;
+        Path[1][2] = 200;
+        
+        PathLength = abs(sqrt(pow(Path[1][0],2)+pow(Path[1][1],2)+pow(Path[1][2],2)));
+        
+        Path[2][0] = 0;
+        Path[2][1] = 0; //nonsenslinje til at få de til slutpositionen
+        Path[2][2] = 1;
+        
+        Path[3][0] = 0;
+        Path[3][1] = 0; //nonsenslinje til at få de til slutpositionen
+        Path[3][2] = 1;
         
         Rotation[0] = 0;
         Rotation[1] = 0;

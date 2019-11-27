@@ -12,6 +12,7 @@ void indlaesAssets(){
   
   aiWon = new SoundFile(this, "aiwon.mp3");
   start = new SoundFile(this, "start.mp3");
+  daisy = new SoundFile(this, "daisy.mp3");
 }
 
 void assets(){

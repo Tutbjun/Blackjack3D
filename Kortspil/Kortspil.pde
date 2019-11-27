@@ -25,6 +25,11 @@ void setup(){
 }
 
 void draw(){
+  if(sejr){
+    tjekSejr();
+    return;
+  }
+  
   deltaTime = millis() - lastTime;
   lastTime = millis();
   if(lastTime > 5000 && !foersteKort){

@@ -27,7 +27,7 @@ void aiDraw(){
   if(aiVaerdiPaaHaand < vaerdiPaaHaand){
     resetAnimation(52-trukketKort, pressedAni);
     rotersum[52-trukketKort][0] = 1.3+PI;;
-    vektorsum[52-trukketKort][1] += 50;
+    vektorsum[52-trukketKort][1] += 00;
     vektorsum[52-trukketKort][2] += 100;
     vektorsum[52-trukketKort][0] = -50+trukketKort*10-aiDrawForskydning;
     aiPaaHaand[52-trukketKort] = true;
